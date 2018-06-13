@@ -85,7 +85,7 @@ theme: material-flow
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://kji6252:`1q5696252@github.com/kji6252/kji6252.github.io.git
+  repo: https://kji6252:비밀번호@github.com/kji6252/kji6252.github.io.git
   branche: master
 
 disqus_shortname: jjongin
