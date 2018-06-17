@@ -21,7 +21,7 @@ date: 2018-06-13 10:21:00
 
 ![image](https://user-images.githubusercontent.com/6037055/41322746-adba4b36-6ee5-11e8-9d5f-e0ab432e9393.png)
 
-Hexo가 엄청나게 밀려 있지만 예쁜 테마를 발견하여 결국 쓰게 되었습니다.
-추 후 테마를 바꾸고 싶을때 예쁜 테마를 발견하게 되면 Static Web Generator 상관없이 테마 기준으로 Static Web Generator를 선택 할 예정 입니다.
+여러가지 종류의 Static Web Generator가 있었고 Hexo가 엄청나게 밀려 있지만 [Hexo Temes](https://hexo.io/themes/)에 예쁜 테마를 발견하여 결국 쓰게 되었습니다.
+추 후 다른 예쁜 테마를 발견하게 되면 Static Web Generator 상관없이 테마 기준으로 Static Web Generator를 선택 할 예정 입니다.
 
 현재 테마의 github 주소는 맨밑을 확인해 주세요.

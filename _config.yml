@@ -89,3 +89,6 @@ deploy:
   branche: master
 
 disqus_shortname: jjongin
+
+sitemap:
+  path: sitemap.xml
