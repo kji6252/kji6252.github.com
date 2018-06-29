@@ -19,7 +19,7 @@ Java 언어로 프로그래밍에 입문 했으며 [Ahea](http://ahea.wordpress.
 * 해커톤 총 4회 진행
 * 공개 세미나 총 2회
 
-진힝 했었으며, 공개 세미나 에서는 `Java ORM 매핑 방법`, `Server와 TIME_WAIT 소켓 상태에 따른 성능 튜닝` 주제로 발표를 진행 했었습니다.
+하였고, 공개 세미나 에서는 `Java ORM 매핑 방법`, `Server와 TIME_WAIT 소켓 상태에 따른 성능 튜닝` 주제로 발표를 진행 했었습니다.
 
 * [`Java ORM 매핑 방법`](https://docs.google.com/presentation/d/101RRjxx5Zh4Z23ap4_ZX_WyIe89UNuOvCSuKb7cIsXE/edit?usp=sharing) : Java에서 ORM정보를 가져 올때 Reflection API와 Java Bean 규약에 맞춰서 개발한 내용을 발표
 * [`Server와 TIME_WAIT 소켓 상태에 따른 성능 튜닝`](https://docs.google.com/presentation/d/1KTl5abLuOZ0uWNAKlmyiQpIIRD-37utcNjVwGU-HtMw/edit?usp=sharing) : Server에서 Web Service 구성시에 나타나는 TIME_WAIT상태의 Socket을 튜닝 하는 방법 발표
@@ -31,10 +31,10 @@ Java 언어로 프로그래밍에 입문 했으며 [Ahea](http://ahea.wordpress.
 # 경력
 
 ## KTB투자증권 2017년 6월 ~ 2018년 7월
-Python flask를 이용한 json데이터 처리, Node.js Loopback Framwork API서버 유지 보수, 블룸버그단말기 시세 데이터 처리를 담당 방화벽 로그 검색을 위한 ELK 구축
+Python flask를 이용한 json데이터 처리, Node.js Loopback Framwork API서버 유지 보수, 블룸버그단말기 시세 데이터 가공 및 전송, 방화벽 로그 검색을 위한 ELK 구축
 
 ## 팍스넷 2014년 11월 ~ 2017년 6월
-팍스넷 커뮤니티 Java Webservice 유지보수, 실전투자대회 프론트/백 추가 개발 및 운영, 팍스넷 차세대 커뮤니티 Spring으로 개발
+팍스넷 커뮤니티 Java Webservice 유지 보수, 실전투자대회 프론트/백 추가 개발 및 운영, 팍스넷 차세대 커뮤니티 Spring으로 개발
 
 ---
 
@@ -57,7 +57,7 @@ Python flask를 이용한 json데이터 처리, Node.js Loopback Framwork API서
 
 * 방화벽 로그 수집을 위한 FileBeat 셋팅
 * log의 정형화를 위한 Logstash GROK패턴 적용
-https://drive.google.com/open?id=1M5EnroWlXTzWK_rZAmGaID-JkkAutd4g
+https://drive.google.com/drive/folders/1DDraVQd173sW-pDpg71Q2DtiR4F2L53M?usp=sharing
 
 
 ## 팍스넷 커뮤니티 개발 2016년 10월 ~ 2017년 6월
@@ -86,7 +86,7 @@ https://drive.google.com/open?id=1M5EnroWlXTzWK_rZAmGaID-JkkAutd4g
 개발환경 :
 * 젠킨스 구축, maven spring 으로 컨버팅
 엔진 :
-* 자바 포크/조인 프레임워크 적용으로 인한 실행시간 70% 감축
+* 자바 Cur 적용으로 인한 실행시간 70% 감축
 * 파일 원장 처리 프로그램 리펙토링(리플렉션 적용 및 JPA 적용 유지보수시간 대폭 감소)
 웹 :
 * 각종 AJAX및 DOM제어, jquery 플러그인 사용(live filter,tablesorter, date fomat 등)
