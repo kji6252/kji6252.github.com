@@ -3,13 +3,16 @@ title: 데이터 마이닝(빅 데이터?)
 date: 2016-02-11 03:43:00
 categories:
   - 분류??
+tags:
+  - Data
+  - Big Data
 ---
 **데이터 마이닝(data mining)**은 대규모로 저장된 데이터 안에서 체계적이고 자동적으로 통계적 규칙이나 패턴을 찾아 내는 것이다. 다른 말로는 KDD(데이터베이스 속의 지식 발견, knowledge-discovery in databases)라고도 일컫는다.
 
 데이터 마이닝은 [통계학](https://ko.wikipedia.org/wiki/%ED%86%B5%EA%B3%84%ED%95%99)에서 [패턴 인식](https://ko.wikipedia.org/wiki/%ED%8C%A8%ED%84%B4_%EC%9D%B8%EC%8B%9D)에 이르는 다양한 계량 기법을 사용한다. 데이터 마이닝 기법은 통계학쪽에서 발전한 [탐색적자료분석](https://ko.wikipedia.org/wiki/%ED%83%90%EC%83%89%EC%A0%81%EC%9E%90%EB%A3%8C%EB%B6%84%EC%84%9D), 가설 검정, 다변량 분석, 시계열 분석, 일반선형모형 등의 방법론과 데이터베이스 쪽에서 발전한 [OLAP](https://ko.wikipedia.org/wiki/OLAP) (온라인 분석 처리:On-Line Analytic Processing), [인공지능](https://ko.wikipedia.org/wiki/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5) 진영에서 발전한 [SOM](https://ko.wikipedia.org/wiki/%EC%9E%90%EA%B8%B0%EC%A1%B0%EC%A7%81%ED%99%94%EC%A7%80%EB%8F%84), [신경망](https://ko.wikipedia.org/wiki/%EC%8B%A0%EA%B2%BD%EB%A7%9D), [전문가 시스템](https://ko.wikipedia.org/wiki/%EC%A0%84%EB%AC%B8%EA%B0%80_%EC%8B%9C%EC%8A%A4%ED%85%9C) 등의 기술적인 방법론이 쓰인다.
 
 데이터 마이닝의 응용 분야로 신용평점 시스템(Credit Scoring System)의 [신용평가모형](https://ko.wikipedia.org/w/index.php?title=%EC%8B%A0%EC%9A%A9%ED%8F%89%EA%B0%80%EB%AA%A8%ED%98%95&action=edit&redlink=1) 개발, 사기탐지시스템(Fraud Detection System), 장바구니 분석(Market Basket Analysis), 최적 포트폴리오 구축과 같이 다양한 산업 분야에서 광범위하게 사용되고 있다.
-
+<!-- more -->
 단점으로는, 자료에 의존하여 현상을 해석하고 개선하려고 하기 때문에 자료가 현실을 충분히 반영하지 못한 상태에서 정보를 추출한 모형을 개발할 경우 잘못된 모형을 구축하는 오류를 범할 수가 있다.
 
 데이터마이닝은 데이터 분석을 통해 아래와 같은 분야에 적용하여 결과를 도출할 수 있다.

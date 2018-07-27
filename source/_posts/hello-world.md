@@ -15,7 +15,7 @@ date: 2018-06-13 10:21:00
 * 손쉬운 테마 변경
 
 3가지의 이유가 있어서 사용하게 되었습니다.
-
+<!-- more -->
 ## 사용 이유
 그리고 github pages를 편리하게 사용하기 위해 필요한 Tool인 Static Web Generator를 [StaticGen](https://www.staticgen.com/)에서 조사해본 결과
 
