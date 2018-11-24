@@ -84,7 +84,7 @@ RabbitMQ, ActiveMQ, ZeroMQ, Kafka 에 대해 소개 합니다.
 * In-memory JMS Provider로 사용될 수 있음. 이는 JMS를 사용한 단위 테스트에 적합한 솔루션 제공
 * STOMP, AMQP, MQTT, Openwire, SSL, and WebSockets
 
-​## ZeroMQ
+## ZeroMQ
 
 ZeroMQ는 메시징 라이브러리이다. 그것은 많은 수고를 들이지 않고도 복잡한 커뮤니케이션 시스템을 설계할 수 있도록 해준다. ZeroMQ는 스스로를 효율적으로 설명하기 위해 지금까지 많은 노력을 해왔다. 처음에는 '메시징 미들웨어'로 소개되었지만, 나중에는 '스테로이드를 맞은 TCP' 그리고 이제는 '네트워크 스택의 새로운 레이어'라고 말한다.
 
