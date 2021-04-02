@@ -5,6 +5,12 @@
   "hexo": {
     "version": "3.7.1"
   },
+  "scripts": {
+    "g": "hexo g",
+    "d": "hexo d",
+    "gd": "hexo g d"
+
+  },
   "dependencies": {
     "hexo": "^3.2.0",
     "hexo-autoprefixer": "^1.0.0",
