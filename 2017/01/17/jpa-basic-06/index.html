@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="google-site-verification" content="RHBQQeTxFU7C4xgKgSVkqpeIc8wXkwO5VHw_EEScaVY" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>고급 매핑 | 종인의 기술 블로그</title>
+  <meta name="description" content="A blog of Jongin" />
+  <meta name="keywords" content="java,spring,javascript,developer" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="종인의 기술 블로그">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="상속 관계 매핑: 객체의 상속 관계를 데이터베이스에 어떻게 매핑하는지 다룬다. @MappedSuperclass: 등록일, 수정일 같이 여러 엔티티에서 공통으로 사용하는 매핑 정보만 상속받고 싶으면 이 기능을 사용하면 된다. 복합 키와 식별 관계 매핑: 데이터베이스의 식별자가 하나 이상일 때 매핑하는 방법을 다룬다. 그리고 데이터베이스 설계에서 이야기하는">
+<meta name="keywords" content="Java,JPA,ORM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="고급 매핑">
+<meta property="og:url" content="http://kji6252.github.io/2017/01/17/jpa-basic-06/index.html">
+<meta property="og:site_name" content="종인의 기술 블로그">
+<meta property="og:description" content="상속 관계 매핑: 객체의 상속 관계를 데이터베이스에 어떻게 매핑하는지 다룬다. @MappedSuperclass: 등록일, 수정일 같이 여러 엔티티에서 공통으로 사용하는 매핑 정보만 상속받고 싶으면 이 기능을 사용하면 된다. 복합 키와 식별 관계 매핑: 데이터베이스의 식별자가 하나 이상일 때 매핑하는 방법을 다룬다. 그리고 데이터베이스 설계에서 이야기하는">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://lh3.googleusercontent.com/3mNucKokBmtY-H9PpW0600QFxX2lxXfegLTjVxWKB9N6riIimJSni0It0qCnSLNEEZ1DgeOHWlj06RNObNyp-iZf-IA6E_e7e1j4o2s7BfFhUj6XIo_yufU5TEsngeBZqxJLE1xC">
+<meta property="og:image" content="https://lh3.googleusercontent.com/qhkotbW50hmApzamYVeWxxluUd5CUwUb64sFKze6ddIGLtwEXpQAARfDure2sNzIVatLwm0QRbNuqqxNkzdBLTBnzR4QCxlCINWg-T9DYFYkaJ_XmAgmUrZaMZRmmLe-VH8qoxMF">
+<meta property="og:image" content="https://lh6.googleusercontent.com/T5atnTM9sbabH_-mrJK1UQjHM_ZQfkXVCQRNCwjrh7GH8NHLdu4_uyirJCjpSxCY0lQMOXt-S4mg1ePC84trF6Vq2ZWEz5VT1446X3vPEHuYo9g5N28P_J2P-jNE8rdunOI8ZySH">
+<meta property="og:image" content="https://lh5.googleusercontent.com/orXf3maC0IxF-yGh7i_kDEsG6SL0k0QlIdYlqYxihiRvyxiG2IrvR9gBn-BDhQSViegSff1JlSEUvpSa7dIwcRuRnyuRiUaNbLBzq0ItbnWZKFCYc7wlmOLSne6GV-kIUKW7P_XH">
+<meta property="og:image" content="https://lh4.googleusercontent.com/zY8uB7N_1z8gxJ6oAbYrZRb35B7nA-KlH1J9WzAJ_vUt_stGwb7kG_D3_i0vOOZNe3_fz7EkOcg17I6qUowAwSQoxpPw7_UXCtMCqtIBLjFeAzPq2-udjB021Wj9rGT-7XHGZavz">
+<meta property="og:image" content="https://lh5.googleusercontent.com/P81lE4xCJuzQaN5v5Xg-VBnMJn3K64t_HAW0MA7Acb0iJXiItk4x0g7sUk7oGCuMVe76t_tBdQM3X7oNzW1X5HP9Zj23EECG65PoIVSep_IyMO3ID8rotRDKzBQA_-JkABMwCDMX">
+<meta property="og:image" content="https://lh3.googleusercontent.com/BL90rKP26Z-pOloh-8ov-nrHPWs_vxEnn-Qs0wqfUeh7fPOZYn7IPbn1Z5YK4741_VYJ0Fh99aydF8AFYEihZVoSzlZ2s_W6TmiDc30syIK2zNOS8obOnLOLRHKQMvS3PYCXhjL5">
+<meta property="og:image" content="https://lh3.googleusercontent.com/GPuTuXo48Qa7u9wQQevvc5gr35aPbxTG1XSS70b09iKcISNMDQzyiFW3vIB7oEm2eF3FoGZjV9U1y6e2X_k9jdhG9n7uFdVxXqz7EuT8vZPGwicSyJgFWj_gftlWUXU9tMRN84DO">
+<meta property="og:image" content="https://lh5.googleusercontent.com/orXf3maC0IxF-yGh7i_kDEsG6SL0k0QlIdYlqYxihiRvyxiG2IrvR9gBn-BDhQSViegSff1JlSEUvpSa7dIwcRuRnyuRiUaNbLBzq0ItbnWZKFCYc7wlmOLSne6GV-kIUKW7P_XH">
+<meta property="og:image" content="https://lh4.googleusercontent.com/zY8uB7N_1z8gxJ6oAbYrZRb35B7nA-KlH1J9WzAJ_vUt_stGwb7kG_D3_i0vOOZNe3_fz7EkOcg17I6qUowAwSQoxpPw7_UXCtMCqtIBLjFeAzPq2-udjB021Wj9rGT-7XHGZavz">
+<meta property="og:image" content="https://lh5.googleusercontent.com/P81lE4xCJuzQaN5v5Xg-VBnMJn3K64t_HAW0MA7Acb0iJXiItk4x0g7sUk7oGCuMVe76t_tBdQM3X7oNzW1X5HP9Zj23EECG65PoIVSep_IyMO3ID8rotRDKzBQA_-JkABMwCDMX">
+<meta property="og:image" content="https://lh4.googleusercontent.com/7zgeTIdiAThVeKkCAGHOzniVHvqP2nGOIBxrqkV6ovjGLjy3Xyby40gAuAN_0lZDjufszlFK5J5Ent-HVxfmxIWCWmW9Ia_aoHE_t_rqaPQxUWt2h5Ur20YWUOawjQByexwDiYqH">
+<meta property="og:image" content="https://lh3.googleusercontent.com/7qkqhiBRjOuzIjb11X6Qp6OPt7w6bkMCEZFhBHOYVLquDPjW14nWoX0OVTsby8Cc_xN9grBcCUWi1p9fh3pqYqujYiYDQDhmmxt9ZcOCoYDoN8KlHW4j4qAhsPThOvLjVSVsXt3u">
+<meta property="og:image" content="https://lh3.googleusercontent.com/ZSxzpRR2wwkgIOMA9LNFhtMLNFNkuxK1hNCWGivRetqV5xWQhyf65vahnE_8UH0Rqyqc9T1SMpRvQBC2hUARtI43_M7z9zWFEXRyjkSqEZmn2clCBPOOr95xes1Pug-WSc5pj_dQ">
+<meta property="og:image" content="https://lh3.googleusercontent.com/ASEnoYzIbhfryNr3dDgopQP4DDvTrpa4b4m0X-lJSkX-TAeQGLvwQsWuDbhowgoMSEwcUNIjZZH0lQHqxn0FszT4hGntuh7WBpt2g65XsJNKHQs-qZ-oJ2QJJD26X71TE3lsnoE3">
+<meta property="og:image" content="https://lh3.googleusercontent.com/3xMJj7zH4ao41IpcRZFZkHBGQRH0cfzrrjaE1ZdN_RQgiVb3N4H5muEpMlGySIkBOGPWLXjcKu8Tc7b-KTkskreZJkKIoSTscbmNBv5oLESMJgL3GIx_Nl72ukl6M8HgQOekm6Ck">
+<meta property="og:image" content="https://lh6.googleusercontent.com/BlvJM-OyrB9l7DuYzomKnMSLPlGQyY_rM4QHLQyVgaVPY8DuBWv5aVOJjp-HorNyvldGGYtg1Asn4wkRZjw3lOSmpHq0t052y3aV7CrzcozceQH5ACX7IZhD81x0q5KFfdB58bQf">
+<meta property="og:image" content="https://lh5.googleusercontent.com/Dk8hGT_YGKzn7zKWLOWBsuID4F0iaG4MeRSvvwu1278cWQVtlQ_bTUfmrxqb2QN5JqH3wYLAevw-g-sGNNXW5dE0Kn8p-C4acNwLK7TESbu-4ZQJLca0JAIdULKrFdB8fWHbLpye">
+<meta property="og:image" content="https://lh4.googleusercontent.com/AjeFwgRZIzKPOtTUU7BA4c4XslYOYtKyi31Ds_pr4K5rQi6VmzMR4V6ajzSzAeUr4rhy3CzEJt7AQ90gUylMTi7oA6Y-f1sJYgpMtnazY_Ox9dJfbfTkYLxlKQgf6Jwbwo-xEjpo">
+<meta property="og:image" content="https://lh3.googleusercontent.com/P5JfoFJHZTQPIoaX8QVyQVLG0ZSAfaenz9rFNO-6imhLHct1Z0PXOHmtCWex9EJEDEt42KXV-BIVKEz_VtmtCdtQalw5ufH7DW3nWAIb9wawTGmfVEjYeyj_5dNpqoCcur2FWXR4">
+<meta property="og:updated_time" content="2021-04-02T02:38:07.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="고급 매핑">
+<meta name="twitter:description" content="상속 관계 매핑: 객체의 상속 관계를 데이터베이스에 어떻게 매핑하는지 다룬다. @MappedSuperclass: 등록일, 수정일 같이 여러 엔티티에서 공통으로 사용하는 매핑 정보만 상속받고 싶으면 이 기능을 사용하면 된다. 복합 키와 식별 관계 매핑: 데이터베이스의 식별자가 하나 이상일 때 매핑하는 방법을 다룬다. 그리고 데이터베이스 설계에서 이야기하는">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/3mNucKokBmtY-H9PpW0600QFxX2lxXfegLTjVxWKB9N6riIimJSni0It0qCnSLNEEZ1DgeOHWlj06RNObNyp-iZf-IA6E_e7e1j4o2s7BfFhUj6XIo_yufU5TEsngeBZqxJLE1xC">
+    
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+</head>
+
+<body>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+
+  <script>setLoadingBarProgress(20)</script> 
+  <header class="l_header">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >
+				종인의 기술 블로그
+			</a>
+			<div class='menu'>
+				<ul class='h-list'>
+					
+						<li>
+							<a class='flat-box nav-home' href='/'>
+								Home
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-archives' href='/archives'>
+								Archives
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-about' href='/about'>
+								About
+							</a>
+						</li>
+					
+				</ul>
+				<div class='underline'></div>
+			</div>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon icon-search"></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a href='javascript:void(0)'><span class="icon icon-search flat-box"></span></a></li>
+				
+				<li class='s-menu'><a href='javascript:void(0)'><span class="icon icon-menu flat-box"></span></a></li>
+			</ul>
+		</div>
+		
+		<div class='nav-sub container container--flex'>
+			<a class="logo" class="flat-box" href='javascript:void(0)'>
+				Word of Forks
+			</a>
+
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a href='javascript:void(0)'><span class="icon icon-chat_bubble_outline flat-box"></span></a></li>
+				<li class='s-top'><a href='javascript:void(0)'><span class="icon icon-arrow_upward flat-box"></span></a></li>
+				<li class='s-toc'><a href='javascript:void(0)'><span class="icon icon-format_list_numbered flat-box"></span></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+<aside class="menu-phone">
+	<nav>
+		
+			<a href="/" class="nav-home nav">
+				Home
+			</a>
+		
+			<a href="/archives" class="nav-archives nav">
+				Archives
+			</a>
+		
+			<a href="/about" class="nav-about nav">
+				About
+			</a>
+		
+	</nav>
+</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+  <div class="l_body">
+    <div class='container clearfix'>
+      <div class='l_main'>
+        <article id="post-jpa-basic-06"
+  class="post white-box article-type-post"
+  itemscope itemprop="blogPost">
+	<section class='meta'>
+	<h2 class="title">
+  	<a href="/2017/01/17/jpa-basic-06/">
+    	고급 매핑
+    </a>
+  </h2>
+	<time>
+	  Jan 17, 2017
+	</time>
+	
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+	</section>
+	
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#7-1-상속관계-매핑"><span class="toc-number">1.</span> <span class="toc-text">7.1 상속관계 매핑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#조인-전략"><span class="toc-number">1.1.</span> <span class="toc-text">조인 전략</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#단일-테이블-전략"><span class="toc-number">1.2.</span> <span class="toc-text">단일 테이블 전략</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#구현-클래스마다-테이블-전략"><span class="toc-number">1.3.</span> <span class="toc-text">구현 클래스마다 테이블 전략</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-2-MappedSuperclass"><span class="toc-number">2.</span> <span class="toc-text">7.2 @MappedSuperclass</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-3-복합-키와-식별-관계-매핑"><span class="toc-number">3.</span> <span class="toc-text">7.3 복합 키와 식별 관계 매핑</span></a></li></ol></section>
+	
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<ul>
+<li>상속 관계 매핑: 객체의 상속 관계를 데이터베이스에 어떻게 매핑하는지 다룬다.</li>
+<li>@MappedSuperclass: 등록일, 수정일 같이 여러 엔티티에서 공통으로 사용하는 매핑 정보만 상속받고 싶으면 이 기능을 사용하면 된다.</li>
+<li>복합 키와 식별 관계 매핑: 데이터베이스의 식별자가 하나 이상일 때 매핑하는 방법을 다룬다. 그리고 데이터베이스 설계에서 이야기하는 식별 관계와 비식별 관계에 대해서도 다룬다.</li>
+<li>조인 테이블: 테이블은 외래 키 하나로 연관관계를 맺을 수 있지만 연관관계를 관리하는 연결 테이블을 두는 방법도 있다. 여기서는 이 연결 테이블을 매핑하는 방법을 다룬다.</li>
+<li>엔티티 하나에 여러 테이블 매핑하기: 보통 엔티티 하나에 테이블 하나를 매핑하지만 엔티티 하나에 여러 테이블을 매핑하는 방법도 있다. 여기서는 이 매핑 방법을 다룬다.</li>
+</ul>
+<a id="more"></a>
+<h1 id="7-1-상속관계-매핑"><a href="#7-1-상속관계-매핑" class="headerlink" title="7.1 상속관계 매핑"></a>7.1 상속관계 매핑</h1><p><img src="https://lh3.googleusercontent.com/3mNucKokBmtY-H9PpW0600QFxX2lxXfegLTjVxWKB9N6riIimJSni0It0qCnSLNEEZ1DgeOHWlj06RNObNyp-iZf-IA6E_e7e1j4o2s7BfFhUj6XIo_yufU5TEsngeBZqxJLE1xC" alt="JPA_Ex7_1.png"></p>
+<p>객체 상속 모델</p>
+<p>JPA에서는 상속관계를 총 3가지로 제공</p>
+<ul>
+<li>조인 전략 : @Inheritance(strategy=InheritanceType.JOINED)</li>
+<li>단일 테이블 전략 : @Inheritance(strategy=InheritanceType.SINGLE_TABLE)</li>
+<li>구현 클래스마다 테이블 전략 : @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)</li>
+</ul>
+<h2 id="조인-전략"><a href="#조인-전략" class="headerlink" title="조인 전략"></a>조인 전략</h2><p><img src="https://lh3.googleusercontent.com/qhkotbW50hmApzamYVeWxxluUd5CUwUb64sFKze6ddIGLtwEXpQAARfDure2sNzIVatLwm0QRbNuqqxNkzdBLTBnzR4QCxlCINWg-T9DYFYkaJ_XmAgmUrZaMZRmmLe-VH8qoxMF" alt="JPA_Ex7_2.png"></p>
+<p><img src="https://lh6.googleusercontent.com/T5atnTM9sbabH_-mrJK1UQjHM_ZQfkXVCQRNCwjrh7GH8NHLdu4_uyirJCjpSxCY0lQMOXt-S4mg1ePC84trF6Vq2ZWEz5VT1446X3vPEHuYo9g5N28P_J2P-jNE8rdunOI8ZySH" alt=""></p>
+<p><img src="https://lh5.googleusercontent.com/orXf3maC0IxF-yGh7i_kDEsG6SL0k0QlIdYlqYxihiRvyxiG2IrvR9gBn-BDhQSViegSff1JlSEUvpSa7dIwcRuRnyuRiUaNbLBzq0ItbnWZKFCYc7wlmOLSne6GV-kIUKW7P_XH" alt=""></p>
+<p><img src="https://lh4.googleusercontent.com/zY8uB7N_1z8gxJ6oAbYrZRb35B7nA-KlH1J9WzAJ_vUt_stGwb7kG_D3_i0vOOZNe3_fz7EkOcg17I6qUowAwSQoxpPw7_UXCtMCqtIBLjFeAzPq2-udjB021Wj9rGT-7XHGZavz" alt=""></p>
+<p><img src="https://lh5.googleusercontent.com/P81lE4xCJuzQaN5v5Xg-VBnMJn3K64t_HAW0MA7Acb0iJXiItk4x0g7sUk7oGCuMVe76t_tBdQM3X7oNzW1X5HP9Zj23EECG65PoIVSep_IyMO3ID8rotRDKzBQA_-JkABMwCDMX" alt=""></p>
+<p>부모 테이블의 기본 키를 받아서 기본 키 + 외래 키로 사용하는 전략<br>객체는 타입이 있지만 테이블은 없기에 DTYPE 이라는 컬럼을 구분 컬럼으로 사용해야함</p>
+<h2 id="단일-테이블-전략"><a href="#단일-테이블-전략" class="headerlink" title="단일 테이블 전략"></a>단일 테이블 전략</h2><p><img src="https://lh3.googleusercontent.com/BL90rKP26Z-pOloh-8ov-nrHPWs_vxEnn-Qs0wqfUeh7fPOZYn7IPbn1Z5YK4741_VYJ0Fh99aydF8AFYEihZVoSzlZ2s_W6TmiDc30syIK2zNOS8obOnLOLRHKQMvS3PYCXhjL5" alt="JPA_Ex7_3.png"></p>
+<p><img src="https://lh3.googleusercontent.com/GPuTuXo48Qa7u9wQQevvc5gr35aPbxTG1XSS70b09iKcISNMDQzyiFW3vIB7oEm2eF3FoGZjV9U1y6e2X_k9jdhG9n7uFdVxXqz7EuT8vZPGwicSyJgFWj_gftlWUXU9tMRN84DO" alt=""></p>
+<p><img src="https://lh5.googleusercontent.com/orXf3maC0IxF-yGh7i_kDEsG6SL0k0QlIdYlqYxihiRvyxiG2IrvR9gBn-BDhQSViegSff1JlSEUvpSa7dIwcRuRnyuRiUaNbLBzq0ItbnWZKFCYc7wlmOLSne6GV-kIUKW7P_XH" alt=""></p>
+<p><img src="https://lh4.googleusercontent.com/zY8uB7N_1z8gxJ6oAbYrZRb35B7nA-KlH1J9WzAJ_vUt_stGwb7kG_D3_i0vOOZNe3_fz7EkOcg17I6qUowAwSQoxpPw7_UXCtMCqtIBLjFeAzPq2-udjB021Wj9rGT-7XHGZavz" alt=""></p>
+<p><img src="https://lh5.googleusercontent.com/P81lE4xCJuzQaN5v5Xg-VBnMJn3K64t_HAW0MA7Acb0iJXiItk4x0g7sUk7oGCuMVe76t_tBdQM3X7oNzW1X5HP9Zj23EECG65PoIVSep_IyMO3ID8rotRDKzBQA_-JkABMwCDMX" alt=""></p>
+<p>전략을 싱글테이블로 바꾸면된다.</p>
+<p><img src="https://lh4.googleusercontent.com/7zgeTIdiAThVeKkCAGHOzniVHvqP2nGOIBxrqkV6ovjGLjy3Xyby40gAuAN_0lZDjufszlFK5J5Ent-HVxfmxIWCWmW9Ia_aoHE_t_rqaPQxUWt2h5Ur20YWUOawjQByexwDiYqH" alt=""></p>
+<p>추가로 자식엔티티에서 기본키 칼럼명이 다르면 @PrimaryKeyJoinColumn을 쓴다.</p>
+<h2 id="구현-클래스마다-테이블-전략"><a href="#구현-클래스마다-테이블-전략" class="headerlink" title="구현 클래스마다 테이블 전략"></a>구현 클래스마다 테이블 전략</h2><p><img src="https://lh3.googleusercontent.com/7qkqhiBRjOuzIjb11X6Qp6OPt7w6bkMCEZFhBHOYVLquDPjW14nWoX0OVTsby8Cc_xN9grBcCUWi1p9fh3pqYqujYiYDQDhmmxt9ZcOCoYDoN8KlHW4j4qAhsPThOvLjVSVsXt3u" alt="JPA_Ex7_4.png"></p>
+<p><img src="https://lh3.googleusercontent.com/ZSxzpRR2wwkgIOMA9LNFhtMLNFNkuxK1hNCWGivRetqV5xWQhyf65vahnE_8UH0Rqyqc9T1SMpRvQBC2hUARtI43_M7z9zWFEXRyjkSqEZmn2clCBPOOr95xes1Pug-WSc5pj_dQ" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/ASEnoYzIbhfryNr3dDgopQP4DDvTrpa4b4m0X-lJSkX-TAeQGLvwQsWuDbhowgoMSEwcUNIjZZH0lQHqxn0FszT4hGntuh7WBpt2g65XsJNKHQs-qZ-oJ2QJJD26X71TE3lsnoE3" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/3xMJj7zH4ao41IpcRZFZkHBGQRH0cfzrrjaE1ZdN_RQgiVb3N4H5muEpMlGySIkBOGPWLXjcKu8Tc7b-KTkskreZJkKIoSTscbmNBv5oLESMJgL3GIx_Nl72ukl6M8HgQOekm6Ck" alt=""></p>
+<p><img src="https://lh6.googleusercontent.com/BlvJM-OyrB9l7DuYzomKnMSLPlGQyY_rM4QHLQyVgaVPY8DuBWv5aVOJjp-HorNyvldGGYtg1Asn4wkRZjw3lOSmpHq0t052y3aV7CrzcozceQH5ACX7IZhD81x0q5KFfdB58bQf" alt=""></p>
+<p>이전략은 이름도 길어서 제일 안쓸거 같다.. 책에서는 데이터베이스 설계자와 ORM 전문가 둘 다 추천하지 않은 전략이라고 함</p>
+<h1 id="7-2-MappedSuperclass"><a href="#7-2-MappedSuperclass" class="headerlink" title="7.2 @MappedSuperclass"></a>7.2 @MappedSuperclass</h1><p>7.1에선 테이블과의 상속관계를 다뤘는데 이건 순수히 객체의 상속만을 할땐 @MappedSuperclass를 씀 추상 클래스와 비슷하다고 생각하면 됨</p>
+<p><img src="https://lh5.googleusercontent.com/Dk8hGT_YGKzn7zKWLOWBsuID4F0iaG4MeRSvvwu1278cWQVtlQ_bTUfmrxqb2QN5JqH3wYLAevw-g-sGNNXW5dE0Kn8p-C4acNwLK7TESbu-4ZQJLca0JAIdULKrFdB8fWHbLpye" alt="Copy of Untitled Diagram.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MappedSuperclass</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseEntity</span> </span>&#123;</span><br><span class="line"><span class="meta">@Id</span> <span class="meta">@GeneratedValue</span></span><br><span class="line"><span class="keyword">private</span> Long id;</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Member</span> <span class="keyword">extends</span> <span class="title">BaseEntity</span> </span>&#123;</span><br><span class="line"><span class="comment">//ID 상속</span></span><br><span class="line"><span class="comment">//NAME 상속</span></span><br><span class="line"><span class="keyword">private</span> String email;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@AttributeOverride</span>(name=<span class="string">"id"</span>, column=<span class="meta">@Column</span>(<span class="string">"MEMBER_ID"</span>))</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Seller</span> <span class="keyword">extends</span> <span class="title">BaseEntity</span> </span>&#123;</span><br><span class="line"><span class="comment">//ID 상속</span></span><br><span class="line"><span class="comment">//NAME 상속</span></span><br><span class="line"><span class="keyword">private</span> String shopName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AttributeOverride</span></span><br><span class="line"><span class="meta">@AttributeOverrides</span></span><br></pre></td></tr></table></figure>
+<p>어노테이션을 통해 상속받은 칼럼명을 재정의 할수도 있음.</p>
+<h1 id="7-3-복합-키와-식별-관계-매핑"><a href="#7-3-복합-키와-식별-관계-매핑" class="headerlink" title="7.3 복합 키와 식별 관계 매핑"></a>7.3 복합 키와 식별 관계 매핑</h1><p><img src="https://lh4.googleusercontent.com/AjeFwgRZIzKPOtTUU7BA4c4XslYOYtKyi31Ds_pr4K5rQi6VmzMR4V6ajzSzAeUr4rhy3CzEJt7AQ90gUylMTi7oA6Y-f1sJYgpMtnazY_Ox9dJfbfTkYLxlKQgf6Jwbwo-xEjpo" alt="JPA_7_6.png"></p>
+<p>식별 관계</p>
+<p><img src="https://lh3.googleusercontent.com/P5JfoFJHZTQPIoaX8QVyQVLG0ZSAfaenz9rFNO-6imhLHct1Z0PXOHmtCWex9EJEDEt42KXV-BIVKEz_VtmtCdtQalw5ufH7DW3nWAIb9wawTGmfVEjYeyj_5dNpqoCcur2FWXR4" alt="JPA_7_7.png"></p>
+<p>비식별 관계</p>
+<p>@IdClass와 @EmbeddedId 방식 2가지가 존재 한다.</p>
+<p>@IdClass는 테이블 친화적이고 @EmbeddedId는 객체 친화적</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//식별관계 IdClass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line"><span class="meta">@Id</span> <span class="meta">@Column</span>(name=<span class="string">"PARENT_ID"</span>)</span><br><span class="line"><span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@IdClass</span>(ChildId.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span></span>&#123;</span><br><span class="line"><span class="meta">@Id</span></span><br><span class="line"><span class="meta">@ManyToOne</span></span><br><span class="line"><span class="meta">@JoinColumn</span>(name=<span class="string">"PARENT_ID"</span>)</span><br><span class="line"><span class="keyword">public</span> Parent parent;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Id</span> <span class="meta">@Column</span>(name=<span class="string">"CHILD_ID"</span>)</span><br><span class="line"><span class="keyword">private</span> String ChildId;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//자식ID</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChildId</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line"><span class="comment">//Child.parent 매핑</span></span><br><span class="line"><span class="keyword">private</span> String parent;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Child.childId 매핑</span></span><br><span class="line"><span class="keyword">private</span> String childId;</span><br><span class="line"></span><br><span class="line"><span class="comment">//equals, hashcode</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GrandChild</span></span>&#123;</span><br><span class="line"><span class="meta">@Id</span></span><br><span class="line"><span class="meta">@ManyToOne</span></span><br><span class="line"><span class="meta">@JoinColumns</span>(&#123;</span><br><span class="line"><span class="meta">@JoinColumn</span>(name=<span class="string">"PARENT_ID"</span>)</span><br><span class="line">,<span class="meta">@JoinColumn</span>(name=<span class="string">"CHILD_ID"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">private</span> Child child;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Id</span> <span class="meta">@Column</span>(name=<span class="string">"GRANDCHILD_ID"</span>)</span><br><span class="line"><span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//손자 ID</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GrandChildId</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line"><span class="comment">//GrandChild.child 매핑</span></span><br><span class="line"><span class="keyword">private</span> ChildId child;</span><br><span class="line"></span><br><span class="line"><span class="comment">//GrandChild.id 매핑</span></span><br><span class="line"><span class="keyword">private</span> String Id;</span><br><span class="line"></span><br><span class="line"><span class="comment">//equals, hashcode</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//식별관계 EmbeddedId</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line"><span class="meta">@Id</span> <span class="meta">@Column</span>(name=<span class="string">"PARENT_ID"</span>)</span><br><span class="line"><span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span></span>&#123;</span><br><span class="line"><span class="meta">@EmbeddedId</span></span><br><span class="line"><span class="keyword">private</span> ChildId id;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ChildId.prentId 매핑</span></span><br><span class="line"><span class="meta">@MapsId</span>(<span class="string">"prentId"</span>)</span><br><span class="line"><span class="meta">@ManyToOne</span></span><br><span class="line"><span class="meta">@JoinColumn</span>(name=<span class="string">"PARENT_ID"</span>)</span><br><span class="line"><span class="keyword">public</span> Parent parent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//자식ID</span></span><br><span class="line"><span class="meta">@Embeddable</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChildId</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line"><span class="comment">//@MapsId("parentId")로 매핑</span></span><br><span class="line"><span class="keyword">private</span> String parentId;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Column</span>(name=<span class="string">"CHILD_ID"</span>)</span><br><span class="line"><span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line"><span class="comment">//equals, hashcode</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GrandChild</span></span>&#123;</span><br><span class="line"><span class="meta">@EmbeddedId</span></span><br><span class="line">GrandChildId id;</span><br><span class="line"></span><br><span class="line"><span class="comment">//GrandChildId.childId 매핑</span></span><br><span class="line"><span class="meta">@MapsId</span>(<span class="string">"childId"</span>)</span><br><span class="line"><span class="meta">@ManyToOne</span></span><br><span class="line"><span class="meta">@JoinColumns</span>(&#123;</span><br><span class="line"><span class="meta">@JoinColumn</span>(name=<span class="string">"PARENT_ID"</span>)</span><br><span class="line">,<span class="meta">@JoinColumn</span>(name=<span class="string">"CHILD_ID"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> Child child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//손자 ID</span></span><br><span class="line"><span class="meta">@Embeddable</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GrandChildId</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line"><span class="comment">//@MapsId("childId") 매핑</span></span><br><span class="line"><span class="keyword">private</span> ChildId childId;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Column</span>(name=<span class="string">"GRANDCHILD_ID"</span>)</span><br><span class="line"><span class="keyword">private</span> String Id;</span><br><span class="line"></span><br><span class="line"><span class="comment">//equals, hashcode</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//비식별 관계</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line"><span class="meta">@Id</span> <span class="meta">@GeneratedValue</span></span><br><span class="line"><span class="meta">@Column</span>(name=<span class="string">"PARENT_ID"</span>)</span><br><span class="line"><span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span></span>&#123;</span><br><span class="line"><span class="meta">@Id</span> <span class="meta">@GeneratedValue</span></span><br><span class="line"><span class="meta">@Column</span>(name=<span class="string">"CHILD_ID"</span>)</span><br><span class="line"><span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ChildId.prentId 매핑</span></span><br><span class="line"><span class="meta">@ManyToOne</span></span><br><span class="line"><span class="meta">@JoinColumn</span>(name=<span class="string">"PARENT_ID"</span>)</span><br><span class="line"><span class="keyword">public</span> Parent parent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GrandChild</span></span>&#123;</span><br><span class="line"><span class="meta">@Id</span> <span class="meta">@GeneratedValue</span></span><br><span class="line"><span class="meta">@Column</span>(name=<span class="string">"GRANDCHILD_ID"</span>)</span><br><span class="line"><span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ManyToOne</span></span><br><span class="line"><span class="meta">@JoinColumn</span>(name=<span class="string">"CHILD_ID"</span>)</span><br><span class="line"><span class="keyword">private</span> Child child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>식별 관계인 경우는 복합키가 필요함으로 키관련 클래스들도 생성해야 하지만 비식별관계는 키가 1개임으로 복합키클래스를 만들 필요가 없다.</p>
+<p>참고로 키가 1개일 경우만 @GeneratedValue 를 사용할수 있다.</p>
+<p>책에서는 비식별 관계를 사용하고 기본 키는 LONG 타입의 대리 키를 사용 하는것이 좋다고 소개 되어있습니다. 그 이유는 비즈니스와 관련이 없어 변경시에 유연한 대처가 가능 Long 타입의 경우 약 920경의 숫자를 담을수 있음.</p>
+<p>나머지 조인테이블과 엔티티 하나에 여러 테이블 매핑이 있지만 비주류라서 소개 하지 않겠습니다.</p>
+<p>출처 : 자바 ORM 표준 JPA 프로그래밍 김영한</p>
+
+  	</div>
+	  
+	  <div class="article-tags tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+		
+	
+		<div class="art-item-footer">
+				
+					<span class="art-item-left"><i class="icon icon-chevron-thin-left"></i>prev：<a href="/2017/01/22/jpa-basic-07/" rel="prev"  title="프록시와 연관관계 관리">
+						프록시와 연관관계 관리 
+					</a></span>
+				
+				
+					<span class="art-item-right">next：<a href="/2017/01/15/jpa-basic-05/" rel="next"  title="엔티티의 연관관계 매핑시 고려할거 정리">
+						엔티티의 연관관계 매핑시 고려할거 정리
+					</a><i class="icon icon-chevron-thin-right"></i></span>
+				
+		</div>
+	
+	</section>
+	
+		<section id="comments">
+			<div id="disqus_thread"></div>
+		</section>
+	
+</article>
+<script>
+	window.subData = {
+		title: '고급 매핑',
+		tools: true
+	}
+</script>
+
+      </div>
+      <aside class='l_side'>
+        
+  <section class='m_widget about'>
+
+<img class='avatar waves-image' src='/images/avatar.jpg' />
+
+<div class='header'>Jongin Kim</div>
+<div class='content'>
+<div class='desc'>개발 이모저모.</div>
+</div>
+</section>
+
+  <section class='m_widget links'>
+<div class='header'>Links</div>
+<div class='content'>
+    <ul class="entry">
+    
+        <li><a class="flat-box" target="_blank" href="https://ahea.wordpress.com/">
+            <div class='name'>Ahea Team Study Blog</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://www.facebook.com/AheaCommunity/">
+            <div class='name'>Ahea Facebook</div>
+        </a></li>
+    
+    </ul>
+</div>
+</section>
+
+  <section class='m_widget categories'>
+<div class='header'>Categories</div>
+<div class='content'>
+    
+    <ul class="entry">
+    
+        <li><a class="flat-box" href="/categories/JHipster/"><div class='name'>JHipster</div><div class='badget'>3</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/JPA/"><div class='name'>JPA</div><div class='badget'>10</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Spring/"><div class='name'>Spring</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Web/"><div class='name'>Web</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/가상화폐/"><div class='name'>가상화폐</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/도커/"><div class='name'>도커</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/분류/"><div class='name'>분류??</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/세미나/"><div class='name'>세미나</div><div class='badget'>2</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/스프링/"><div class='name'>스프링</div><div class='badget'>2</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/이모저모/"><div class='name'>이모저모</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/이클립스/"><div class='name'>이클립스</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/자바/"><div class='name'>자바</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/자바스크립트/"><div class='name'>자바스크립트</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/최신-기술/"><div class='name'>최신 기술</div><div class='badget'>2</div></a></li>
+    
+    </ul>
+    
+</div>
+</section>
+
+  
+<div class="m_widget tagcloud">
+    <div class="header">Tags</div>
+    <div class='content'>
+        <a href="/tags/Anti-Pattern/" style="font-size: 14px; color: #808080">Anti Pattern</a> <a href="/tags/Big-Data/" style="font-size: 14px; color: #808080">Big Data</a> <a href="/tags/Bitcoin/" style="font-size: 14px; color: #808080">Bitcoin</a> <a href="/tags/Blog/" style="font-size: 14px; color: #808080">Blog</a> <a href="/tags/Chrome-devtools-Android-Web-Debug/" style="font-size: 14px; color: #808080">Chrome, devtools, Android, Web Debug</a> <a href="/tags/Cookie/" style="font-size: 14px; color: #808080">Cookie</a> <a href="/tags/DB/" style="font-size: 14px; color: #808080">DB</a> <a href="/tags/Data/" style="font-size: 14px; color: #808080">Data</a> <a href="/tags/Docker/" style="font-size: 14px; color: #808080">Docker</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #808080">Hexo</a> <a href="/tags/JDBC/" style="font-size: 14px; color: #808080">JDBC</a> <a href="/tags/JHipster/" style="font-size: 15.5px; color: #606060">JHipster</a> <a href="/tags/JPA/" style="font-size: 18.5px; color: #202020">JPA</a> <a href="/tags/Java/" style="font-size: 20px; color: #000">Java</a> <a href="/tags/Java-Spring-Spring-Boot-Spring-Cloud/" style="font-size: 14px; color: #808080">Java, Spring, Spring Boot, Spring Cloud</a> <a href="/tags/Javascript/" style="font-size: 14px; color: #808080">Javascript</a> <a href="/tags/Message-Queue/" style="font-size: 14px; color: #808080">Message Queue</a> <a href="/tags/Nginx/" style="font-size: 14px; color: #808080">Nginx</a> <a href="/tags/ORM/" style="font-size: 18.5px; color: #202020">ORM</a> <a href="/tags/Object/" style="font-size: 14px; color: #808080">Object</a> <a href="/tags/Open-Graph/" style="font-size: 14px; color: #808080">Open Graph</a> <a href="/tags/Plugin/" style="font-size: 14px; color: #808080">Plugin</a> <a href="/tags/Server/" style="font-size: 14px; color: #808080">Server</a> <a href="/tags/Spring/" style="font-size: 17px; color: #404040">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 14px; color: #808080">Spring Boot</a> <a href="/tags/TIME-WAIT/" style="font-size: 14px; color: #808080">TIME_WAIT</a> <a href="/tags/Tool/" style="font-size: 14px; color: #808080">Tool</a> <a href="/tags/URL/" style="font-size: 14px; color: #808080">URL</a>
+    </div>
+</div>
+
+
+
+      </aside>
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+  </div>
+  <footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/kji6252" class="social github"
+          target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="https://www.facebook.com/jongin.kim3?ref=bookmarks" class="social facebook"
+          target="_blank" rel="external">
+          <span class="icon icon-facebook"></span>
+        </a>
+      
+        <a href="/atom.xml" class="social rss"
+          target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+    
+  </div>
+  
+  <div>Theme <a href='https://github.com/stkevintan/hexo-theme-material-flow' class="codename">MaterialFlow</a> designed by <a href="http://keyin.me/" target="_blank">Kevin Tan</a>.</div>
+  
+</footer>
+
+
+  <script>setLoadingBarProgress(80);</script>
+  
+<script>
+  var disqus_shortname = 'jjongin';
+  
+  var disqus_url = 'http://kji6252.github.io/2017/01/17/jpa-basic-06/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "hexo";
+  var ROOT = "/"||"/";
+  if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

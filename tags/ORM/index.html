@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="google-site-verification" content="RHBQQeTxFU7C4xgKgSVkqpeIc8wXkwO5VHw_EEScaVY" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Tag: ORM | 종인의 기술 블로그</title>
+  <meta name="description" content="A blog of Jongin" />
+  <meta name="keywords" content="java,spring,javascript,developer" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="종인의 기술 블로그">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A blog of Jongin">
+<meta name="keywords" content="java,spring,javascript,developer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="종인의 기술 블로그">
+<meta property="og:url" content="http://kji6252.github.io/tags/ORM/index.html">
+<meta property="og:site_name" content="종인의 기술 블로그">
+<meta property="og:description" content="A blog of Jongin">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="종인의 기술 블로그">
+<meta name="twitter:description" content="A blog of Jongin">
+    
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+</head>
+
+<body>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+
+  <script>setLoadingBarProgress(20)</script> 
+  <header class="l_header">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >
+				종인의 기술 블로그
+			</a>
+			<div class='menu'>
+				<ul class='h-list'>
+					
+						<li>
+							<a class='flat-box nav-home' href='/'>
+								Home
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-archives' href='/archives'>
+								Archives
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-about' href='/about'>
+								About
+							</a>
+						</li>
+					
+				</ul>
+				<div class='underline'></div>
+			</div>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon icon-search"></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a href='javascript:void(0)'><span class="icon icon-search flat-box"></span></a></li>
+				
+				<li class='s-menu'><a href='javascript:void(0)'><span class="icon icon-menu flat-box"></span></a></li>
+			</ul>
+		</div>
+		
+		<div class='nav-sub container container--flex'>
+			<a class="logo" class="flat-box" href='javascript:void(0)'>
+				Word of Forks
+			</a>
+
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a href='javascript:void(0)'><span class="icon icon-chat_bubble_outline flat-box"></span></a></li>
+				<li class='s-top'><a href='javascript:void(0)'><span class="icon icon-arrow_upward flat-box"></span></a></li>
+				<li class='s-toc'><a href='javascript:void(0)'><span class="icon icon-format_list_numbered flat-box"></span></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+<aside class="menu-phone">
+	<nav>
+		
+			<a href="/" class="nav-home nav">
+				Home
+			</a>
+		
+			<a href="/archives" class="nav-archives nav">
+				Archives
+			</a>
+		
+			<a href="/about" class="nav-about nav">
+				About
+			</a>
+		
+	</nav>
+</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+  <div class="l_body">
+    <div class='container clearfix'>
+      <div class='l_main'>
+        
+  <script>
+    window.subData= { title:'Tag : ORM'}
+  </script>
+
+<section class="post-list">
+	
+    <div class='post-wrapper'>
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2017/01/23/jpa-basic-10/">
+        QueryDSL
+      </a>
+    </h2>
+    
+    <time>
+      Jan 23, 2017
+    </time>
+		
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <h1 id="1-QueryDSL-소개"><a href="#1-QueryDSL-소개" class="headerlink" title="1 QueryDSL 소개"></a>1 QueryDSL 소개</h1><ul>
+<li>JPQL을 코드로 작성할 수 있도록 도와주는 빌더 API</li>
+<li>JPA 크리테리아에 비해서 편리하고 실용적임</li>
+<li>쿼리를 문자가 아닌 코드로 작성해도, 쉽고 간결하며 그 모양도 쿼리와 비슷하게 개발 할 수 있는 프로젝트가 바로 QueryDSL 이다.</li>
+<li><p>오픈소스</p>
+
+    
+	  <div class="readmore">
+      <a href="/2017/01/23/jpa-basic-10/">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class='post-wrapper'>
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2017/01/23/jpa-basic-09/">
+        객체지향 쿼리 언어
+      </a>
+    </h2>
+    
+    <time>
+      Jan 23, 2017
+    </time>
+		
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <h1 id="1-JPQL-소개"><a href="#1-JPQL-소개" class="headerlink" title="1 JPQL 소개"></a>1 JPQL 소개</h1><p>JPQL(Java Persistence Query Language) : 엔티티 객체를 조회하는 객체지향 쿼리.</p>
+<ul>
+<li>JPQL은 SQL을 추상화해서 특정 데이터베이스에 의존하지 않는다.</li>
+<li>JPQL은 객체지향 쿼리 언어다. 테이블X 엔티티O</li>
+<li>JPQL은 결국 SQL로 변환된다.
+
+    
+	  <div class="readmore">
+      <a href="/2017/01/23/jpa-basic-09/">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class='post-wrapper'>
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2017/01/23/jpa-basic-08/">
+        값 타입
+      </a>
+    </h2>
+    
+    <time>
+      Jan 23, 2017
+    </time>
+		
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <ul>
+<li>기본값 타입basic value type<ul>
+<li>자바 기본 타입(예: int, double)</li>
+<li>래퍼 클래스(예: Integer)</li>
+<li>String</li>
+</ul>
+</li>
+<li>임베디드 타입embedded type(복합 값 타입)</li>
+<li>컬렉션 값 타입collection value type</li>
+</ul>
+<h1 id="복합-값-타입"><a href="#복합-값-타입" class="headerlink" title="복합 값 타입"></a>복합 값 타입</h1><p><img src="https://lh6.googleusercontent.com/cFKZlL4JNdKV7OOHodNXWvVThMwQcfglx_M-_NGNV9w_jhBTsoUNteIPJuzfJUKELdLIB-es0t3LAPabcv5EFwKrPHO66R7FxMV8ZtAHZtTf7Da5aQpDcyNgw0qYKa7TIUuu78Ml" alt=""></p>
+<p>복합값 정의 : @Embeddable 어노테이션으로 정의<br>
+
+    
+	  <div class="readmore">
+      <a href="/2017/01/23/jpa-basic-08/">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class='post-wrapper'>
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2017/01/22/jpa-basic-07/">
+        프록시와 연관관계 관리
+      </a>
+    </h2>
+    
+    <time>
+      Jan 22, 2017
+    </time>
+		
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <ul>
+<li><a href="https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9D%EC%8B%9C_%ED%8C%A8%ED%84%B4" target="_blank" rel="noopener">프록시</a> : 연관된 객체를 실제 사용하는 시점에 데이터베이스에서 조회 하는 기술</li>
+<li>지연로딩: 연관된 객체를 실제 사용하는 시점에 불러 오는것</li>
+<li>즉시로딩 : 연관된 객체를 조인을 통하여 함께 불러오는것</li>
+<li>영속성 전이 : 연관된 객체를 함께 저장하거나 삭제</li>
+<li>고아 객체 : 부모객체가 삭제시 홀로 남겨지는 객체</li>
+</ul>
+<h1 id="8-1-프록시"><a href="#8-1-프록시" class="headerlink" title="8.1 프록시"></a>8.1 프록시</h1><p>엔티티를 조회할 때 연관된 엔티티들이 항상 사용되는 것은 아니다.</p>
+<p>JPA는 엔티티가 실제 사용될 때까지 데이터베이스 조회를 지연하는 방법을 제공하는데 이것을 지연 로딩이라 한다.</p>
+<p>지연 로딩 기능을 사용하려면 실제 엔티티 객체 대신에 데이터베이스 조회를 지연할 수 있는 가짜 객체가 필요한데 이것을 <a href="https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9D%EC%8B%9C_%ED%8C%A8%ED%84%B4" target="_blank" rel="noopener">프록시</a> 객체라 한다.<br>
+
+    
+	  <div class="readmore">
+      <a href="/2017/01/22/jpa-basic-07/">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class='post-wrapper'>
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2017/01/17/jpa-basic-06/">
+        고급 매핑
+      </a>
+    </h2>
+    
+    <time>
+      Jan 17, 2017
+    </time>
+		
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <ul>
+<li>상속 관계 매핑: 객체의 상속 관계를 데이터베이스에 어떻게 매핑하는지 다룬다.</li>
+<li>@MappedSuperclass: 등록일, 수정일 같이 여러 엔티티에서 공통으로 사용하는 매핑 정보만 상속받고 싶으면 이 기능을 사용하면 된다.</li>
+<li>복합 키와 식별 관계 매핑: 데이터베이스의 식별자가 하나 이상일 때 매핑하는 방법을 다룬다. 그리고 데이터베이스 설계에서 이야기하는 식별 관계와 비식별 관계에 대해서도 다룬다.</li>
+<li>조인 테이블: 테이블은 외래 키 하나로 연관관계를 맺을 수 있지만 연관관계를 관리하는 연결 테이블을 두는 방법도 있다. 여기서는 이 연결 테이블을 매핑하는 방법을 다룬다.</li>
+<li>엔티티 하나에 여러 테이블 매핑하기: 보통 엔티티 하나에 테이블 하나를 매핑하지만 엔티티 하나에 여러 테이블을 매핑하는 방법도 있다. 여기서는 이 매핑 방법을 다룬다.</li>
+</ul>
+
+    
+	  <div class="readmore">
+      <a href="/2017/01/17/jpa-basic-06/">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class='post-wrapper'>
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2017/01/15/jpa-basic-05/">
+        엔티티의 연관관계 매핑시 고려할거 정리
+      </a>
+    </h2>
+    
+    <time>
+      Jan 15, 2017
+    </time>
+		
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <p>고려할건 크게 3가지다.</p>
+<ul>
+<li>다중성</li>
+<li>단방향, 양방향</li>
+<li>연관관계의 주인</li>
+</ul>
+<p>다중성 : 두 엔티티의 연관관계를 나타냄 (예: 일대다,다대일,일대일,다대다) 다중성을 판단하기 힘들땐 반대방향을 생각하면 됨 (일대다의 반대는 다대일)</p>
+<ul>
+<li>다대일(@ManyToOne)</li>
+<li>일대다(@OneToMany)</li>
+<li>일대일(@OneToOne)</li>
+<li><p>다대다(@ManyToMany)</p>
+
+    
+	  <div class="readmore">
+      <a href="/2017/01/15/jpa-basic-05/">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class='post-wrapper'>
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2017/01/15/jpa-basic-04/">
+        연관관계 기초
+      </a>
+    </h2>
+    
+    <time>
+      Jan 15, 2017
+    </time>
+		
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <ul>
+<li>객체의 참조와 테이블의 외래 키를 매핑하는 것이 이 장의 목표다.* </li>
+</ul>
+<h2 id="핵심-키워드"><a href="#핵심-키워드" class="headerlink" title="핵심 키워드"></a>핵심 키워드</h2><ul>
+<li>방향(Direction): [단방향, 양방향]이 있다. 한 쪽만 참조하는 것을 단방향 관계라 하고, 양쪽 모두 서로 참조하는 것을 양방향 관계라 한다. 방향은 객체관계에만 존재하고 테이블 관계는 항상 양방향이다.</li>
+<li>다중성(Multiplicty): [다대일(N:1), 일대다(1:N), 일대일(1:1), 다대다(N:M)] 다중성이 있다.</li>
+<li>연관관계의 주인(Owner): 객체를 양방향 연관관계로 만들면 연관관계의 주인을 정해야 한다.</li>
+</ul>
+
+    
+	  <div class="readmore">
+      <a href="/2017/01/15/jpa-basic-04/">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class='post-wrapper'>
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2016/08/10/jpa-basic-03/">
+        엔티티 매핑
+      </a>
+    </h2>
+    
+    <time>
+      Aug 10, 2016
+    </time>
+		
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <ul>
+<li>객체와 테이블 매핑 : @Entity, @Table</li>
+<li>기본 키 매핑 : @Id</li>
+<li>필드와 컬럼 매핑 : @Column</li>
+<li>연관관계 매핑 : @ManyToOne, @JoinColumn</li>
+</ul>
+<p>@Entity(클래스) : 테이블과 매핑할 클래스, JPA가 관리함</p>
+<p>@Table(클래스) : 엔티티와 매핑할 테이블 (생략시 엔티티명으로 적용)</p>
+<ul>
+<li>uniqueConstraints(DDL) : DDL생성시 유니크 제약조건 만듬.</li>
+</ul>
+<p>@Column(필드) : 칼럼을 매핑한다.<br>
+
+    
+	  <div class="readmore">
+      <a href="/2016/08/10/jpa-basic-03/">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class='post-wrapper'>
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2016/08/10/jpa-basic-02/">
+        영속성 관리
+      </a>
+    </h2>
+    
+    <time>
+      Aug 10, 2016
+    </time>
+		
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><ul>
+<li>EntityManagerFactory : EntityManager를 만드는 공장. 애플리케이션에서 persistens.xml의 persistens-unit갯수 만큼만 있어야함</li>
+<li>EntityManager : 요청이 올때마다 생성 해도 됨.(커넥션풀에서 커넥션 한개씩 이라고 생각해도 될듯)</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/6037055/43312616-d026e46c-91c8-11e8-91d3-4d547753a096.png" alt="persistencecontext4"></p>
+<ul>
+<li>persistence context(영속성 컨텍스트) : ‘엔티티를 영구 저장하는 환경’ </li>
+</ul>
+<h1 id="특징"><a href="#특징" class="headerlink" title="특징"></a>특징</h1><ul>
+<li>영속 상태인 엔티티는 식별자 값이 반드시 있어야 한다. (식별자 값이없으면 예외 발생)</li>
+<li><p>트랜잭션 커밋 하는 순간 DB 반영힘 이를 플러시(flush)라 함</p>
+
+    
+	  <div class="readmore">
+      <a href="/2016/08/10/jpa-basic-02/">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class='post-wrapper'>
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2016/08/03/jpa-basic-01/">
+        JPA 소개 JPA 시작
+      </a>
+    </h2>
+    
+    <time>
+      Aug 3, 2016
+    </time>
+		
+    
+    <div class='cats'>
+        <a href="/categories/JPA/">JPA</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <h1 id="1-JPA-소개"><a href="#1-JPA-소개" class="headerlink" title="1. JPA 소개"></a>1. JPA 소개</h1><p>하이버네이트 오픈소스 ORM 프레임워크가 나온 후 자바빈이 버려지고 하이버네이트, 이클립스링크등의 ORM 프레임워크로 자바 ORM 표준을 정한것이 JPA 이다.</p>
+<p><a href="https://ko.wikipedia.org/wiki/JPA" target="_blank" rel="noopener">JPA(Java Persistent API) : </a>관계형 <a href="https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4" title="데이터베이스" target="_blank" rel="noopener">데이터베이스</a>에 접근하기 위한 표준 <a href="https://ko.wikipedia.org/wiki/ORM" title="ORM" target="_blank" rel="noopener">ORM</a> 기술을 제공하며, 기존에 <a href="https://ko.wikipedia.org/wiki/EJB" title="EJB" target="_blank" rel="noopener">EJB</a>에서 제공되던 엔터티 빈(Entity Bean)을 대체하는 기술이다. JPA는 JSR 220에서 정의된 EJB 3.0 스펙의 일부로 정의가 되어 있지만, JPA는 EJB 컨테이너에 의존하지 않으며 EJB, 웹 모듈 및 <a href="https://ko.wikipedia.org/wiki/Java_SE" title="Java SE" target="_blank" rel="noopener">Java SE</a> 클라이언트에서 모두 사용이 가능하다. 또한, JPA는 사용자가 원하는 퍼시스턴스 프로바이더 구현체를 선택해서 사용할 수 있다.</p>
+<p><a href="https://ko.wikipedia.org/wiki/%EA%B0%9D%EC%B2%B4_%EA%B4%80%EA%B3%84_%EB%A7%A4%ED%95%91" target="_blank" rel="noopener">ORM(Object Relational Mapping) :</a> 관계형 데이터베이스를 객체에 매핑.</p>
+<p>왜 JPA를 사용해야 하는가?</p>
+<ol>
+<li>생산성 : 지루하고 반복적인 CRUD 코드를 직접 작성하지 않아도 된다.</li>
+<li>유지보수 : 엔티티에 필드를 하나만 추가해줘도 등록, 수정, 조회 자동으로 매핑 된다.</li>
+<li>패러다임의 불일치 해결 : 관계형 DB로 객체지향적인 코딩이 가능해 진다.</li>
+<li>성능 : 한번 조회한건 캐시를 사용함으로 똑같은걸 2번 조회 하지 않는다.(1차캐시)</li>
+<li>데이터 접근 추상화와 벤더 독립성 : 방언을 통해 자유자제로 다른 DB로 변경이 가능 하다.</li>
+<li>표준 : 자바 진영의 ORM 표준이다.
+
+    
+	  <div class="readmore">
+      <a href="/2016/08/03/jpa-basic-01/">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/JPA/">JPA</a>
+      
+        <a href="/tags/ORM/">ORM</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+</section>
+
+
+      </div>
+      <aside class='l_side'>
+        
+  <section class='m_widget about'>
+
+<img class='avatar waves-image' src='/images/avatar.jpg' />
+
+<div class='header'>Jongin Kim</div>
+<div class='content'>
+<div class='desc'>개발 이모저모.</div>
+</div>
+</section>
+
+  <section class='m_widget links'>
+<div class='header'>Links</div>
+<div class='content'>
+    <ul class="entry">
+    
+        <li><a class="flat-box" target="_blank" href="https://ahea.wordpress.com/">
+            <div class='name'>Ahea Team Study Blog</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://www.facebook.com/AheaCommunity/">
+            <div class='name'>Ahea Facebook</div>
+        </a></li>
+    
+    </ul>
+</div>
+</section>
+
+  <section class='m_widget categories'>
+<div class='header'>Categories</div>
+<div class='content'>
+    
+    <ul class="entry">
+    
+        <li><a class="flat-box" href="/categories/JHipster/"><div class='name'>JHipster</div><div class='badget'>3</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/JPA/"><div class='name'>JPA</div><div class='badget'>10</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Spring/"><div class='name'>Spring</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Web/"><div class='name'>Web</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/가상화폐/"><div class='name'>가상화폐</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/도커/"><div class='name'>도커</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/분류/"><div class='name'>분류??</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/세미나/"><div class='name'>세미나</div><div class='badget'>2</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/스프링/"><div class='name'>스프링</div><div class='badget'>2</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/이모저모/"><div class='name'>이모저모</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/이클립스/"><div class='name'>이클립스</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/자바/"><div class='name'>자바</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/자바스크립트/"><div class='name'>자바스크립트</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/최신-기술/"><div class='name'>최신 기술</div><div class='badget'>2</div></a></li>
+    
+    </ul>
+    
+</div>
+</section>
+
+  
+<div class="m_widget tagcloud">
+    <div class="header">Tags</div>
+    <div class='content'>
+        <a href="/tags/Anti-Pattern/" style="font-size: 14px; color: #808080">Anti Pattern</a> <a href="/tags/Big-Data/" style="font-size: 14px; color: #808080">Big Data</a> <a href="/tags/Bitcoin/" style="font-size: 14px; color: #808080">Bitcoin</a> <a href="/tags/Blog/" style="font-size: 14px; color: #808080">Blog</a> <a href="/tags/Chrome-devtools-Android-Web-Debug/" style="font-size: 14px; color: #808080">Chrome, devtools, Android, Web Debug</a> <a href="/tags/Cookie/" style="font-size: 14px; color: #808080">Cookie</a> <a href="/tags/DB/" style="font-size: 14px; color: #808080">DB</a> <a href="/tags/Data/" style="font-size: 14px; color: #808080">Data</a> <a href="/tags/Docker/" style="font-size: 14px; color: #808080">Docker</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #808080">Hexo</a> <a href="/tags/JDBC/" style="font-size: 14px; color: #808080">JDBC</a> <a href="/tags/JHipster/" style="font-size: 15.5px; color: #606060">JHipster</a> <a href="/tags/JPA/" style="font-size: 18.5px; color: #202020">JPA</a> <a href="/tags/Java/" style="font-size: 20px; color: #000">Java</a> <a href="/tags/Java-Spring-Spring-Boot-Spring-Cloud/" style="font-size: 14px; color: #808080">Java, Spring, Spring Boot, Spring Cloud</a> <a href="/tags/Javascript/" style="font-size: 14px; color: #808080">Javascript</a> <a href="/tags/Message-Queue/" style="font-size: 14px; color: #808080">Message Queue</a> <a href="/tags/Nginx/" style="font-size: 14px; color: #808080">Nginx</a> <a href="/tags/ORM/" style="font-size: 18.5px; color: #202020">ORM</a> <a href="/tags/Object/" style="font-size: 14px; color: #808080">Object</a> <a href="/tags/Open-Graph/" style="font-size: 14px; color: #808080">Open Graph</a> <a href="/tags/Plugin/" style="font-size: 14px; color: #808080">Plugin</a> <a href="/tags/Server/" style="font-size: 14px; color: #808080">Server</a> <a href="/tags/Spring/" style="font-size: 17px; color: #404040">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 14px; color: #808080">Spring Boot</a> <a href="/tags/TIME-WAIT/" style="font-size: 14px; color: #808080">TIME_WAIT</a> <a href="/tags/Tool/" style="font-size: 14px; color: #808080">Tool</a> <a href="/tags/URL/" style="font-size: 14px; color: #808080">URL</a>
+    </div>
+</div>
+
+
+
+      </aside>
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+  </div>
+  <footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/kji6252" class="social github"
+          target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="https://www.facebook.com/jongin.kim3?ref=bookmarks" class="social facebook"
+          target="_blank" rel="external">
+          <span class="icon icon-facebook"></span>
+        </a>
+      
+        <a href="/atom.xml" class="social rss"
+          target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+    
+  </div>
+  
+  <div>Theme <a href='https://github.com/stkevintan/hexo-theme-material-flow' class="codename">MaterialFlow</a> designed by <a href="http://keyin.me/" target="_blank">Kevin Tan</a>.</div>
+  
+</footer>
+
+
+  <script>setLoadingBarProgress(80);</script>
+  
+<script>
+  var disqus_shortname = 'jjongin';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "hexo";
+  var ROOT = "/"||"/";
+  if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

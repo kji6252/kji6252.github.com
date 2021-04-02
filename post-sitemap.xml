@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://kji6252.github.io</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2020/06/06/Spring-Boot-+-Spring-Cloud-%EB%A5%BC-%EA%B2%BD%ED%97%98-%ED%95%98%EC%9E%90/</loc>
+        <lastmod>2021-04-02T02:46:34.998Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2016/04/24/open-graph-protocol/</loc>
+        <lastmod>2021-04-02T02:38:07.051Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2016/06/12/spring-boot-jre-error/</loc>
+        <lastmod>2021-04-02T02:38:07.051Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/04/03/windows-docker-install/</loc>
+        <lastmod>2021-04-02T02:38:07.051Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2018/07/29/%ED%95%B4%EC%99%B8%ED%8C%90-%EC%A0%84%EC%9E%90%EC%A0%95%EB%B6%80%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-JHipster%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84-%EB%B3%B4%EC%9E%90/</loc>
+        <lastmod>2021-04-02T02:38:07.051Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2015/12/16/ksug-anti-pattern/</loc>
+        <lastmod>2021-04-02T02:38:07.050Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/02/26/obj-map-super-type-token/</loc>
+        <lastmod>2021-04-02T02:38:07.050Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2015/12/18/message-quere/</loc>
+        <lastmod>2021-04-02T02:38:07.050Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/01/22/jpa-basic-07/</loc>
+        <lastmod>2021-04-02T02:38:07.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/01/23/jpa-basic-08/</loc>
+        <lastmod>2021-04-02T02:38:07.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/01/23/jpa-basic-09/</loc>
+        <lastmod>2021-04-02T02:38:07.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/01/23/jpa-basic-10/</loc>
+        <lastmod>2021-04-02T02:38:07.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/01/17/jpa-basic-06/</loc>
+        <lastmod>2021-04-02T02:38:07.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2016/08/03/jpa-basic-01/</loc>
+        <lastmod>2021-04-02T02:38:07.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2016/03/21/javascript-cookie/</loc>
+        <lastmod>2021-04-02T02:38:07.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2016/08/10/jpa-basic-03/</loc>
+        <lastmod>2021-04-02T02:38:07.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2016/08/10/jpa-basic-02/</loc>
+        <lastmod>2021-04-02T02:38:07.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/01/15/jpa-basic-04/</loc>
+        <lastmod>2021-04-02T02:38:07.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/01/15/jpa-basic-05/</loc>
+        <lastmod>2021-04-02T02:38:07.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2016/05/28/eclipse-plugin-recommend/</loc>
+        <lastmod>2021-04-02T02:38:07.047Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2018/06/13/hello-world/</loc>
+        <lastmod>2021-04-02T02:38:07.047Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/07/06/java-data-access/</loc>
+        <lastmod>2021-04-02T02:38:07.047Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/12/25/bitcoin-summary/</loc>
+        <lastmod>2021-04-02T02:38:07.046Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2018/07/29/JHipster%EB%9E%80/</loc>
+        <lastmod>2021-04-02T02:38:07.046Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2018/12/27/PC%EC%97%90%EC%84%9C-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%ED%8F%B0-%ED%81%AC%EB%A1%AC-%EB%94%94%EB%B2%84%EA%B9%85-%ED%95%98%EA%B8%B0/</loc>
+        <lastmod>2021-04-02T02:38:07.046Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2016/02/11/data-mining/</loc>
+        <lastmod>2021-04-02T02:38:07.046Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2018/08/11/JHipster-MSA-%EA%B5%AC%EC%B6%95/</loc>
+        <lastmod>2021-04-02T02:38:07.045Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2018/07/09/2018-Ahea-%EC%84%B8%EB%AF%B8%EB%82%98-Server%EC%97%90%EC%84%9C-%EB%A7%8C%EB%82%A8%EC%9D%84-%EC%B6%94%EA%B5%AC%ED%95%98%EB%A9%B4-%EC%95%88%EB%90%98%EB%8A%94-%EA%B1%B8%EA%B9%8C/</loc>
+        <lastmod>2021-04-02T02:38:07.045Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->

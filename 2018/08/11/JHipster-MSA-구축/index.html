@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="google-site-verification" content="RHBQQeTxFU7C4xgKgSVkqpeIc8wXkwO5VHw_EEScaVY" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>JHipster MSA 구축 | 종인의 기술 블로그</title>
+  <meta name="description" content="A blog of Jongin" />
+  <meta name="keywords" content="java,spring,javascript,developer" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="종인의 기술 블로그">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="개요Mricroservice는 수많은 장점을 가지고 있지만 구축하는건 생각보다 쉽지 않습니다. JHipster와 함께 MSA구축을 하면 한층 쉽게 다가갈수 있다고 생각 되어 글을 작성 하게 되었습니다. 본 글에서는 크게  개발 MSA 환경 구축 Docker Compose를 활용한 Service Mash  나뉘며 프로젝트 생성부터 Microservice Ga">
+<meta name="keywords" content="JHipster,Java,Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JHipster MSA 구축">
+<meta property="og:url" content="http://kji6252.github.io/2018/08/11/JHipster-MSA-구축/index.html">
+<meta property="og:site_name" content="종인의 기술 블로그">
+<meta property="og:description" content="개요Mricroservice는 수많은 장점을 가지고 있지만 구축하는건 생각보다 쉽지 않습니다. JHipster와 함께 MSA구축을 하면 한층 쉽게 다가갈수 있다고 생각 되어 글을 작성 하게 되었습니다. 본 글에서는 크게  개발 MSA 환경 구축 Docker Compose를 활용한 Service Mash  나뉘며 프로젝트 생성부터 Microservice Ga">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://www.jhipster.tech/images/microservices_architecture_detail.001.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988352-c1192640-9d6e-11e8-9723-d77ee7674fb1.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988345-bfed690c-9d6e-11e8-9c47-0fb1dd3b1516.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988350-c0b8cbce-9d6e-11e8-86b4-98b644cfc333.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988346-c021a9ba-9d6e-11e8-9ad7-e797411cdbb9.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988348-c05189b4-9d6e-11e8-8b74-86da2dd6425a.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988351-c0eb1688-9d6e-11e8-90e8-0d0a7a825fe9.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988349-c08271aa-9d6e-11e8-9e30-80feec06d61a.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988355-c1a150f6-9d6e-11e8-8c77-b38491c25a79.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988353-c1499aaa-9d6e-11e8-9a1f-ad028fc7361b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988354-c17b96e0-9d6e-11e8-831e-49487bc1052d.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988576-e06f3f48-9d73-11e8-97e9-42f814005407.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988578-e25a1c4c-9d73-11e8-9d9b-86288ad38cb7.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988579-e2fdcd2e-9d73-11e8-810f-423e7461d370.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988577-e0bbab3a-9d73-11e8-8d1e-733ba811f815.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988583-efa2428a-9d73-11e8-9dcf-a49e5cee3901.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/6037055/43988604-4267cec2-9d74-11e8-94e0-ad09e3a3b3b2.png">
+<meta property="og:updated_time" content="2021-04-02T02:38:07.045Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JHipster MSA 구축">
+<meta name="twitter:description" content="개요Mricroservice는 수많은 장점을 가지고 있지만 구축하는건 생각보다 쉽지 않습니다. JHipster와 함께 MSA구축을 하면 한층 쉽게 다가갈수 있다고 생각 되어 글을 작성 하게 되었습니다. 본 글에서는 크게  개발 MSA 환경 구축 Docker Compose를 활용한 Service Mash  나뉘며 프로젝트 생성부터 Microservice Ga">
+<meta name="twitter:image" content="https://www.jhipster.tech/images/microservices_architecture_detail.001.png">
+    
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+</head>
+
+<body>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+
+  <script>setLoadingBarProgress(20)</script> 
+  <header class="l_header">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >
+				종인의 기술 블로그
+			</a>
+			<div class='menu'>
+				<ul class='h-list'>
+					
+						<li>
+							<a class='flat-box nav-home' href='/'>
+								Home
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-archives' href='/archives'>
+								Archives
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-about' href='/about'>
+								About
+							</a>
+						</li>
+					
+				</ul>
+				<div class='underline'></div>
+			</div>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon icon-search"></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a href='javascript:void(0)'><span class="icon icon-search flat-box"></span></a></li>
+				
+				<li class='s-menu'><a href='javascript:void(0)'><span class="icon icon-menu flat-box"></span></a></li>
+			</ul>
+		</div>
+		
+		<div class='nav-sub container container--flex'>
+			<a class="logo" class="flat-box" href='javascript:void(0)'>
+				Word of Forks
+			</a>
+
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a href='javascript:void(0)'><span class="icon icon-chat_bubble_outline flat-box"></span></a></li>
+				<li class='s-top'><a href='javascript:void(0)'><span class="icon icon-arrow_upward flat-box"></span></a></li>
+				<li class='s-toc'><a href='javascript:void(0)'><span class="icon icon-format_list_numbered flat-box"></span></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+<aside class="menu-phone">
+	<nav>
+		
+			<a href="/" class="nav-home nav">
+				Home
+			</a>
+		
+			<a href="/archives" class="nav-archives nav">
+				Archives
+			</a>
+		
+			<a href="/about" class="nav-about nav">
+				About
+			</a>
+		
+	</nav>
+</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+  <div class="l_body">
+    <div class='container clearfix'>
+      <div class='l_main'>
+        <article id="post-JHipster-MSA-구축"
+  class="post white-box article-type-post"
+  itemscope itemprop="blogPost">
+	<section class='meta'>
+	<h2 class="title">
+  	<a href="/2018/08/11/JHipster-MSA-구축/">
+    	JHipster MSA 구축
+    </a>
+  </h2>
+	<time>
+	  Aug 11, 2018
+	</time>
+	
+    
+    <div class='cats'>
+        <a href="/categories/JHipster/">JHipster</a>
+    </div>
+
+	</section>
+	
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#개요"><span class="toc-number">1.</span> <span class="toc-text">개요</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#개발-MSA-환경-구축"><span class="toc-number">2.</span> <span class="toc-text">개발 MSA 환경 구축</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gateway-생성"><span class="toc-number">2.1.</span> <span class="toc-text">Gateway 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-생성"><span class="toc-number">2.2.</span> <span class="toc-text">Application 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#개발-MSA-환경-실행"><span class="toc-number">2.3.</span> <span class="toc-text">개발 MSA 환경 실행</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-Compose를-활용한-Service-Mash"><span class="toc-number">3.</span> <span class="toc-text">Docker Compose를 활용한 Service Mash</span></a></li></ol></section>
+	
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>Mricroservice는 수많은 장점을 가지고 있지만 구축하는건 생각보다 쉽지 않습니다. JHipster와 함께 MSA구축을 하면 한층 쉽게 다가갈수 있다고 생각 되어 글을 작성 하게 되었습니다.</p>
+<p>본 글에서는 크게</p>
+<ul>
+<li>개발 MSA 환경 구축</li>
+<li>Docker Compose를 활용한 Service Mash</li>
+</ul>
+<p>나뉘며 프로젝트 생성부터 Microservice Gateway와 Microservice Application생성과 더불어 상용 배포를 위한 Docker Compose 설정까지 알아 보겠습니다.</p>
+<h1 id="개발-MSA-환경-구축"><a href="#개발-MSA-환경-구축" class="headerlink" title="개발 MSA 환경 구축"></a>개발 MSA 환경 구축</h1><p><img src="https://www.jhipster.tech/images/microservices_architecture_detail.001.png" alt="MSA diagram"><br><a id="more"></a></p>
+<ul>
+<li>Gateway 생성<ul>
+<li>Registry 실행</li>
+<li>Gateway 실행</li>
+</ul>
+</li>
+<li>Application 생성<ul>
+<li>Application 실행</li>
+</ul>
+</li>
+</ul>
+<p>여기에선 이 구조로 프로젝트를 생성 해 보겠습니다.<br><img src="https://user-images.githubusercontent.com/6037055/43988352-c1192640-9d6e-11e8-9723-d77ee7674fb1.png" alt="directory"></p>
+<h2 id="Gateway-생성"><a href="#Gateway-생성" class="headerlink" title="Gateway 생성"></a>Gateway 생성</h2><p>Gateway를 생성한 뒤 먼저 JHipster Registry를 실행한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// Gateway로 프로젝트 생성</span><br><span class="line">$ <span class="built_in">cd</span> gateway</span><br><span class="line">$ jhipster</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/6037055/43988345-bfed690c-9d6e-11e8-9c47-0fb1dd3b1516.png" alt="gateway_generate"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Registry 실행</span><br><span class="line">$ docker-compose -f src/main/docker/jhipster-registry.yml up</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://user-images.githubusercontent.com/6037055/43988350-c0b8cbce-9d6e-11e8-86b4-98b644cfc333.png" alt="registry_run"><br>JHipster Registry는 <code>Spring Cloud Config</code>와 <code>Eureka Server</code>로 이루어져 있으며 Microservice의 Config관리 및 서버 발견 역할을 한다.</p>
+<p>registry가 셋팅 된후에 gateway를 실행 시킨다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Gateway 실행</span><br><span class="line">$ ./gradlew</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/6037055/43988346-c021a9ba-9d6e-11e8-9ad7-e797411cdbb9.png" alt="gateway_run"></p>
+<h2 id="Application-생성"><a href="#Application-생성" class="headerlink" title="Application 생성"></a>Application 생성</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// Application로 프로젝트 생성 (member, wallet 각각 실행)</span><br><span class="line">$ <span class="built_in">cd</span> member</span><br><span class="line">$ jhipster</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/6037055/43988348-c05189b4-9d6e-11e8-8b74-86da2dd6425a.png" alt="member_generate"><br><img src="https://user-images.githubusercontent.com/6037055/43988351-c0eb1688-9d6e-11e8-90e8-0d0a7a825fe9.png" alt="wallet_generate"><br>생성 후 별도의 비즈니스로직 추가 후 애플리케이션을 실행 하시면 됩니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Gateway 실행</span><br><span class="line">$ ./gradlew</span><br></pre></td></tr></table></figure>
+<h2 id="개발-MSA-환경-실행"><a href="#개발-MSA-환경-실행" class="headerlink" title="개발 MSA 환경 실행"></a>개발 MSA 환경 실행</h2><p>지금까지 잘 따라오셨으면</p>
+<ul>
+<li>Registry</li>
+<li>Gateway</li>
+<li>Application</li>
+</ul>
+<p>3개의 서비스들이 잘 실행 되어 있고 Gateway에서 각각의 Application의 API를 호출하면 정상적으로 동작하는걸 확인 하실 수 있습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/6037055/43988349-c08271aa-9d6e-11e8-9e30-80feec06d61a.png" alt="registry_check"><br><img src="https://user-images.githubusercontent.com/6037055/43988355-c1a150f6-9d6e-11e8-8c77-b38491c25a79.png" alt="gateway_check"><br><img src="https://user-images.githubusercontent.com/6037055/43988353-c1499aaa-9d6e-11e8-9a1f-ad028fc7361b.png" alt="gateway_app_check_1"><br><img src="https://user-images.githubusercontent.com/6037055/43988354-c17b96e0-9d6e-11e8-831e-49487bc1052d.png" alt="gateway_app_check_2"></p>
+<p>swagger를 통해 Gateway에서 각각의 member와  wallet Service의 API를 확인하고 개발 할 수 있습니다.</p>
+<h1 id="Docker-Compose를-활용한-Service-Mash"><a href="#Docker-Compose를-활용한-Service-Mash" class="headerlink" title="Docker Compose를 활용한 Service Mash"></a>Docker Compose를 활용한 Service Mash</h1><p>Docker Compose를 실행하기전 각각의 애플리케이션의 Dokcer Image가 필요하여 아래의 명령어를 실행 해줘야 합니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./gradlew bootWar -Pprod buildDocker</span><br></pre></td></tr></table></figure></p>
+<p><code>docker images</code>로 Docker Image를 확인 하실 수 있습니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker images</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://user-images.githubusercontent.com/6037055/43988576-e06f3f48-9d73-11e8-97e9-42f814005407.png" alt="docker_images"></p>
+<p>필요한 모든 준비가 완료 되었습니다. 이제 docker-compose로 서비스들을 묶은 뒤 실행만 하면 됩니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> wallet-app-compose</span><br><span class="line">$ jhipster docker-compose</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://user-images.githubusercontent.com/6037055/43988578-e25a1c4c-9d73-11e8-9d9b-86288ad38cb7.png" alt="docker-compose_generate"></p>
+<p>생성을 완료 한 후 실행을 해봅니다.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose up -d</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://user-images.githubusercontent.com/6037055/43988579-e2fdcd2e-9d73-11e8-810f-423e7461d370.png" alt="docker-compose_up"></p>
+<p>이외 compose사용시 유용한 명령어들 입니다.</p>
+<ul>
+<li><code>docker-compose up -d</code> - 컨테이너들 생성과 동시에 실행</li>
+<li><code>docker-compose down</code> - 컨테이너들 종료와 동시에 삭제</li>
+<li><code>docker-compose start</code> - 컨테이너들 실행</li>
+<li><code>docker-compose stop</code> - 컨테이너들 종료</li>
+</ul>
+<p>docker로 실행 시 몇가지 유용한 명령어를 정리 해 보았습니다.</p>
+<ul>
+<li><code>docker stats</code> - 컨테이너의 cpu, memory, I/O 등</li>
+<li><code>docker images</code> - 이미지 확인</li>
+<li><code>docker ps</code> - 컨테이너 확인</li>
+<li><code>docker rmi</code> - 이미지 삭제</li>
+<li><code>docker rm</code> - 컨테이너 삭제</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/6037055/43988577-e0bbab3a-9d73-11e8-8d1e-733ba811f815.png" alt="docker_stats"></p>
+<p>자세한 사용법은 명령어 뒤에 <code>--help</code> 를 넣어 확인 바랍니다.</p>
+<p>JHipster Console도 설치 하여 MSA관리를 수월할 수 있게 도와 줍니다.<br><img src="https://user-images.githubusercontent.com/6037055/43988583-efa2428a-9d73-11e8-9dcf-a49e5cee3901.png" alt="console_dashboard"><br><img src="https://user-images.githubusercontent.com/6037055/43988604-4267cec2-9d74-11e8-94e0-ad09e3a3b3b2.png" alt="console_log"></p>
+
+  	</div>
+	  
+	  <div class="article-tags tags">
+      
+        <a href="/tags/JHipster/">JHipster</a>
+      
+        <a href="/tags/Java/">Java</a>
+      
+        <a href="/tags/Spring/">Spring</a>
+      
+	  </div>
+    
+		
+	
+		<div class="art-item-footer">
+				
+					<span class="art-item-left"><i class="icon icon-chevron-thin-left"></i>prev：<a href="/2018/12/27/PC에서-안드로이드폰-크롬-디버깅-하기/" rel="prev"  title="PC에서 안드로이드폰 크롬 디버깅 하기">
+						PC에서 안드로이드폰 크롬 디버깅 하기 
+					</a></span>
+				
+				
+					<span class="art-item-right">next：<a href="/2018/07/29/JHipster란/" rel="next"  title="JHipster란?">
+						JHipster란?
+					</a><i class="icon icon-chevron-thin-right"></i></span>
+				
+		</div>
+	
+	</section>
+	
+		<section id="comments">
+			<div id="disqus_thread"></div>
+		</section>
+	
+</article>
+<script>
+	window.subData = {
+		title: 'JHipster MSA 구축',
+		tools: true
+	}
+</script>
+
+      </div>
+      <aside class='l_side'>
+        
+  <section class='m_widget about'>
+
+<img class='avatar waves-image' src='/images/avatar.jpg' />
+
+<div class='header'>Jongin Kim</div>
+<div class='content'>
+<div class='desc'>개발 이모저모.</div>
+</div>
+</section>
+
+  <section class='m_widget links'>
+<div class='header'>Links</div>
+<div class='content'>
+    <ul class="entry">
+    
+        <li><a class="flat-box" target="_blank" href="https://ahea.wordpress.com/">
+            <div class='name'>Ahea Team Study Blog</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://www.facebook.com/AheaCommunity/">
+            <div class='name'>Ahea Facebook</div>
+        </a></li>
+    
+    </ul>
+</div>
+</section>
+
+  <section class='m_widget categories'>
+<div class='header'>Categories</div>
+<div class='content'>
+    
+    <ul class="entry">
+    
+        <li><a class="flat-box" href="/categories/JHipster/"><div class='name'>JHipster</div><div class='badget'>3</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/JPA/"><div class='name'>JPA</div><div class='badget'>10</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Spring/"><div class='name'>Spring</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Web/"><div class='name'>Web</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/가상화폐/"><div class='name'>가상화폐</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/도커/"><div class='name'>도커</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/분류/"><div class='name'>분류??</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/세미나/"><div class='name'>세미나</div><div class='badget'>2</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/스프링/"><div class='name'>스프링</div><div class='badget'>2</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/이모저모/"><div class='name'>이모저모</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/이클립스/"><div class='name'>이클립스</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/자바/"><div class='name'>자바</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/자바스크립트/"><div class='name'>자바스크립트</div><div class='badget'>1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/최신-기술/"><div class='name'>최신 기술</div><div class='badget'>2</div></a></li>
+    
+    </ul>
+    
+</div>
+</section>
+
+  
+<div class="m_widget tagcloud">
+    <div class="header">Tags</div>
+    <div class='content'>
+        <a href="/tags/Anti-Pattern/" style="font-size: 14px; color: #808080">Anti Pattern</a> <a href="/tags/Big-Data/" style="font-size: 14px; color: #808080">Big Data</a> <a href="/tags/Bitcoin/" style="font-size: 14px; color: #808080">Bitcoin</a> <a href="/tags/Blog/" style="font-size: 14px; color: #808080">Blog</a> <a href="/tags/Chrome-devtools-Android-Web-Debug/" style="font-size: 14px; color: #808080">Chrome, devtools, Android, Web Debug</a> <a href="/tags/Cookie/" style="font-size: 14px; color: #808080">Cookie</a> <a href="/tags/DB/" style="font-size: 14px; color: #808080">DB</a> <a href="/tags/Data/" style="font-size: 14px; color: #808080">Data</a> <a href="/tags/Docker/" style="font-size: 14px; color: #808080">Docker</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #808080">Hexo</a> <a href="/tags/JDBC/" style="font-size: 14px; color: #808080">JDBC</a> <a href="/tags/JHipster/" style="font-size: 15.5px; color: #606060">JHipster</a> <a href="/tags/JPA/" style="font-size: 18.5px; color: #202020">JPA</a> <a href="/tags/Java/" style="font-size: 20px; color: #000">Java</a> <a href="/tags/Java-Spring-Spring-Boot-Spring-Cloud/" style="font-size: 14px; color: #808080">Java, Spring, Spring Boot, Spring Cloud</a> <a href="/tags/Javascript/" style="font-size: 14px; color: #808080">Javascript</a> <a href="/tags/Message-Queue/" style="font-size: 14px; color: #808080">Message Queue</a> <a href="/tags/Nginx/" style="font-size: 14px; color: #808080">Nginx</a> <a href="/tags/ORM/" style="font-size: 18.5px; color: #202020">ORM</a> <a href="/tags/Object/" style="font-size: 14px; color: #808080">Object</a> <a href="/tags/Open-Graph/" style="font-size: 14px; color: #808080">Open Graph</a> <a href="/tags/Plugin/" style="font-size: 14px; color: #808080">Plugin</a> <a href="/tags/Server/" style="font-size: 14px; color: #808080">Server</a> <a href="/tags/Spring/" style="font-size: 17px; color: #404040">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 14px; color: #808080">Spring Boot</a> <a href="/tags/TIME-WAIT/" style="font-size: 14px; color: #808080">TIME_WAIT</a> <a href="/tags/Tool/" style="font-size: 14px; color: #808080">Tool</a> <a href="/tags/URL/" style="font-size: 14px; color: #808080">URL</a>
+    </div>
+</div>
+
+
+
+      </aside>
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+  </div>
+  <footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/kji6252" class="social github"
+          target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="https://www.facebook.com/jongin.kim3?ref=bookmarks" class="social facebook"
+          target="_blank" rel="external">
+          <span class="icon icon-facebook"></span>
+        </a>
+      
+        <a href="/atom.xml" class="social rss"
+          target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+    
+  </div>
+  
+  <div>Theme <a href='https://github.com/stkevintan/hexo-theme-material-flow' class="codename">MaterialFlow</a> designed by <a href="http://keyin.me/" target="_blank">Kevin Tan</a>.</div>
+  
+</footer>
+
+
+  <script>setLoadingBarProgress(80);</script>
+  
+<script>
+  var disqus_shortname = 'jjongin';
+  
+  var disqus_url = 'http://kji6252.github.io/2018/08/11/JHipster-MSA-구축/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "hexo";
+  var ROOT = "/"||"/";
+  if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
