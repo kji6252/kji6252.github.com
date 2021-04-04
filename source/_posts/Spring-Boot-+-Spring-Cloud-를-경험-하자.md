@@ -12,7 +12,7 @@ Spring 에서 제공 해주는 MSA 환경 구축 가이드를 경험하여 실�
 [https://spring.io/guides](https://spring.io/guides)
 
 ![Untitled](https://user-images.githubusercontent.com/6037055/113374794-efafd980-93a8-11eb-903d-1ff96a90627c.png)
-
+<!-- more -->
 **[Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/)**
 
 Learn how to register and find services with Eureka
