@@ -8,7 +8,7 @@
 
     <url>
         <loc>http://kji6252.github.io/2020/06/06/Spring-Boot-+-Spring-Cloud-%EB%A5%BC-%EA%B2%BD%ED%97%98-%ED%95%98%EC%9E%90/</loc>
-        <lastmod>2021-04-02T02:46:34.998Z</lastmod>
+        <lastmod>2021-04-04T09:51:50.211Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -31,7 +31,7 @@
     </url>
 
     <url>
-        <loc>http://kji6252.github.io/2017/04/03/windows-docker-install/</loc>
+        <loc>http://kji6252.github.io/2018/07/29/%ED%95%B4%EC%99%B8%ED%8C%90-%EC%A0%84%EC%9E%90%EC%A0%95%EB%B6%80%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-JHipster%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84-%EB%B3%B4%EC%9E%90/</loc>
         <lastmod>2021-04-02T02:38:07.051Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -39,7 +39,7 @@
     </url>
 
     <url>
-        <loc>http://kji6252.github.io/2018/07/29/%ED%95%B4%EC%99%B8%ED%8C%90-%EC%A0%84%EC%9E%90%EC%A0%95%EB%B6%80%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-JHipster%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84-%EB%B3%B4%EC%9E%90/</loc>
+        <loc>http://kji6252.github.io/2017/04/03/windows-docker-install/</loc>
         <lastmod>2021-04-02T02:38:07.051Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -71,7 +71,23 @@
     </url>
 
     <url>
+        <loc>http://kji6252.github.io/2017/01/17/jpa-basic-06/</loc>
+        <lastmod>2021-04-02T02:38:07.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://kji6252.github.io/2017/01/22/jpa-basic-07/</loc>
+        <lastmod>2021-04-02T02:38:07.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://kji6252.github.io/2017/01/23/jpa-basic-10/</loc>
         <lastmod>2021-04-02T02:38:07.049Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -95,30 +111,6 @@
     </url>
 
     <url>
-        <loc>http://kji6252.github.io/2017/01/23/jpa-basic-10/</loc>
-        <lastmod>2021-04-02T02:38:07.049Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://kji6252.github.io/2017/01/17/jpa-basic-06/</loc>
-        <lastmod>2021-04-02T02:38:07.049Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://kji6252.github.io/2016/08/03/jpa-basic-01/</loc>
-        <lastmod>2021-04-02T02:38:07.048Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://kji6252.github.io/2016/03/21/javascript-cookie/</loc>
         <lastmod>2021-04-02T02:38:07.048Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -127,7 +119,7 @@
     </url>
 
     <url>
-        <loc>http://kji6252.github.io/2016/08/10/jpa-basic-03/</loc>
+        <loc>http://kji6252.github.io/2016/08/03/jpa-basic-01/</loc>
         <lastmod>2021-04-02T02:38:07.048Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -159,6 +151,14 @@
     </url>
 
     <url>
+        <loc>http://kji6252.github.io/2016/08/10/jpa-basic-03/</loc>
+        <lastmod>2021-04-02T02:38:07.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://kji6252.github.io/2016/05/28/eclipse-plugin-recommend/</loc>
         <lastmod>2021-04-02T02:38:07.047Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -183,7 +183,7 @@
     </url>
 
     <url>
-        <loc>http://kji6252.github.io/2017/12/25/bitcoin-summary/</loc>
+        <loc>http://kji6252.github.io/2018/07/29/JHipster%EB%9E%80/</loc>
         <lastmod>2021-04-02T02:38:07.046Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -191,7 +191,7 @@
     </url>
 
     <url>
-        <loc>http://kji6252.github.io/2018/07/29/JHipster%EB%9E%80/</loc>
+        <loc>http://kji6252.github.io/2017/12/25/bitcoin-summary/</loc>
         <lastmod>2021-04-02T02:38:07.046Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
